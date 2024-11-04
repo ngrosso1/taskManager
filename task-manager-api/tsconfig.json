@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                                   /* Latest ECMAScript features. */
+    "module": "CommonJS",                              /* CommonJS module system for Node.js. */
+    "outDir": "./dist",                                /* Output directory for compiled files. */
+    "rootDir": "./src",                                /* Root directory of source files. */
+    "strict": true,                                    /* Enable all strict type-checking options. */
+    "esModuleInterop": true,                           /* Eases importing CommonJS modules. */
+    "forceConsistentCasingInFileNames": true,          /* Case-sensitive imports. */
+    "skipLibCheck": true                               /* Skip type-checking for libraries. */
+  },
+  "include": ["src"],                                  /* Specifies which files to compile. */
+  "exclude": ["node_modules"]                          /* Excludes unnecessary files. */
+}
