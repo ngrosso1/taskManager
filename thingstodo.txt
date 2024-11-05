@@ -1,0 +1,8 @@
+Task Priorities: Add a priority level (e.g., high, medium, low) 
+to each task, allowing sorting or filtering by priority.
+
+Search Functionality: Implement a search box that filters tasks by name as you type.
+
+User Notifications: Show a subtle notification or message when tasks are added, edited, or deleted.
+
+Add css

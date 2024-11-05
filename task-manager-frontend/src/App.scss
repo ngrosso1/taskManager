@@ -1,0 +1,219 @@
+/* App.scss */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #071c39;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure body and html take full height and remove margins */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.gradient {
+  --size: 20vw;
+  --speed: 20s;
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: var(--size);
+  height: var(--size);
+  filter: blur(100px);
+  background-image: linear-gradient(hsl(222, 88%, 37%), hsl(160, 7%, 18%));
+  animation: rotate var(--speed) var(--easing) infinite;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate(-50%, -50%); /* Center the gradient exactly */
+}
+
+@media (min-width: 720px) {
+  .gradient {
+    --size: 40vw;
+  }
+}
+
+
+/* App content styling */
+h2 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Form styling, task list styling, etc. */
+/* (Retain the rest of your existing styles here) */
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: none; /* Remove the border */
+  border-radius: 5px; /* You can keep or remove this */
+  width: 200px;
+  background-color: transparent; /* Set background to transparent */
+  color: #fff; /* Set text color for visibility */
+  box-shadow: none; /* Remove any shadow if there is one */
+}
+
+input[type="text"]:focus {
+  outline: none; /* Remove default outline */
+}
+
+li {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none; /* Remove shadow for a cleaner look */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container {
+  display: flex; /* Use flexbox for button alignment */
+  flex-direction: row; /* Align buttons in a row */
+  gap: 10px; /* Space between buttons */
+}
+
+.delete-button,
+.edit-button {
+    position: relative; /* Required for tooltip positioning */
+    background-color: transparent; /* Transparent button background */
+    border: none; /* No border */
+    color: #fff; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: color 0.3s; /* Smooth transition for color change */
+    margin: 2px 0; /* Space between buttons */
+}
+
+.delete-button:hover {
+    color: #ff0000; /* Change color to red on hover */
+}
+
+.edit-button:hover {
+    color: #32cd32; /* Change color to green on hover */
+}
+
+/* Tooltip Styles */
+.tooltip {
+    visibility: hidden; /* Hidden by default */
+    width: 120px; /* Width of the tooltip */
+    background-color: rgba(0, 0, 0, 0.75); /* Dark background */
+    color: #fff; /* Text color */
+    text-align: center; /* Centered text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding inside the tooltip */
+    position: absolute; /* Positioning relative to button */
+    z-index: 1; /* Ensure it appears above other elements */
+    bottom: 125%; /* Position above the button */
+    left: 50%; /* Center it horizontally */
+    margin-left: -60px; /* Adjust to center */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.3s; /* Smooth fade-in */
+}
+
+.delete-button:hover .tooltip,
+.edit-button:hover .tooltip {
+    visibility: visible; /* Show on hover */
+    opacity: 1; /* Fade in */
+}
+
+.button-33 {
+  background-color: #6ede97;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px;
+  color: rgb(0, 129, 0);
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .25) 0 1px 2px,
+              rgba(44, 187, 99, .25) 0 2px 4px,
+              rgba(44, 187, 99, .25) 0 4px 8px,
+              rgba(44, 187, 99, .25) 0 8px 16px,
+              rgba(44, 187, 99, .25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/* Adding filter button css */
+/* Add this to your App.scss file */
+
+/* Style for the filter dropdown */
+select {
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Make it rounded */
+  padding: 10px 15px; /* Add some padding */
+  font-size: 16px; /* Font size */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: #000000; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Add box shadow for depth */
+
+  &:focus {
+      outline: none; /* Remove default outline */
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter on focus */
+  }
+
+  /* Option styles for consistent appearance */
+  option {
+      background-color: rgba(255, 255, 255, 0.1); /* Match the dropdown background */
+      color: #000000; /* Match the dropdown text color */
+  }
+
+  /* Option hover styles */
+  option:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Lighter on hover */
+      color: #333; /* Darker text on hover for contrast */
+  }
+}
+
+/* Additional styles for label if needed */
+label {
+  color: #fff; /* Change label color for visibility */
+  font-size: 16px; /* Font size for label */
+  margin-right: 10px; /* Space between label and dropdown */
+}
+
